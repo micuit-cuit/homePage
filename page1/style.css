@@ -1,0 +1,290 @@
+:root[data-theme="light"] {
+    --text: #042f14;
+    --background: #defce8;
+    --primary: #0e8638;
+    --secondary: #d4e5ff;
+    --accent: #6450ff;
+  }
+:root[data-theme="dark"] {
+    --text: #d2fbe1;
+    --background: #03210d;
+    --primary: #78f1a3;
+    --secondary: #10489f;
+    --accent: #4940ec;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    /* definie les parametre pour si il y a un fond d'ecrent */
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+
+.parametres {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    border-radius: 25%;
+    padding: 10px;
+    background-color: var(--background);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.parametres svg {
+    width: 20px;
+    height: 20px;
+    transform: rotate(0deg);
+    transition: all 0.3s;
+}
+.parametres:hover {
+    background-color: var(--primary);
+    color: var(--background);
+}
+.parametres:hover svg {
+    transform: rotate(180deg);
+}
+
+
+/* Styles pour le header du menu de paramètres */
+.settings-menu-header {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 10px;
+}
+
+.settings-menu-header h3 {
+    margin: 0;
+}
+
+/* Styles pour le contenu du menu de paramètres */
+.settings-menu-content {
+    margin-top: 20px;
+}
+
+.settings-menu-content h4 {
+    margin: 15px 0 5px;
+}
+/* Styles pour le background de la popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Arrière-plan semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* S'assure que la popup est au-dessus de tout */
+}
+
+/* Styles pour la popup elle-même */
+.settings-popup {
+    background-color: var(--background);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour l'effet d'élévation */
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 75%;
+    height: 75%;
+}
+.settings-popup div{
+    width:  40%;
+}
+/* Styles pour le header */
+.settings-menu-header {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.settings-menu-header h3 {
+    margin: 0;
+}
+
+/* Styles pour le contenu du menu de paramètres */
+.settings-menu-content {
+    margin-top: 20px;
+}
+
+.settings-menu-content h4 {
+    margin: 15px 0 5px;
+}
+
+button {
+    background-color: var(--primary);
+    color: var(--background);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--secondary);
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    background-color: var(--background);
+    color: var(--text);
+}
+input[type="text"] {
+    width: calc(100% - 20px);
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.save-settings {
+    background-color: var(--accent);
+    margin-top: 20px;
+}
+
+.save-settings:hover {
+    background-color: var(--secondary);
+} 
+.shortcuts-editor {
+    background-color: var(--background);
+    color: var(--text);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.shortcuts-list {
+    margin-top: 20px;
+}
+
+.shortcut-item {
+    display: flex;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: var(--primary);
+    border-radius: 5px;
+    color: var(--accent)
+}
+.shortcut-item-content {
+    display: flex;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.shortcut-item button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.shortcut-item button:hover {
+    background-color: var(--secondary);
+}
+.shortcut-button {
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+.shortcut {
+    background-color: var(--primary);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shortcut:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.shortcut-link {
+    text-decoration: none;
+    color: var(--secondary);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.shortcut-icon {
+    font-size: 36px;
+    color: var(--secondary);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.shortcut:hover .shortcut-icon {
+    color: var(--accent);
+    transform: rotate(20deg);
+}
+
+.shortcut-name {
+    display: block;
+    font-size: 14px;
+    color: var(--secondary);
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.display{
+    width: 80%;
+    border-radius: 20px;
+    margin: 10px;
+    overflow: hidden;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
